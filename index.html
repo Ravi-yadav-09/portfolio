@@ -67,6 +67,12 @@
       text-decoration: none;
     }
 
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(75, 199, 255, 0.55);
+      outline-offset: 3px;
+    }
+
     img {
       display: block;
       max-width: 100%;
@@ -78,6 +84,24 @@
 
     .page {
       min-height: 100vh;
+    }
+
+    .skip-link {
+      position: fixed;
+      left: 16px;
+      top: 12px;
+      z-index: 80;
+      border-radius: var(--radius);
+      padding: 10px 12px;
+      color: #06110c;
+      background: var(--green);
+      font-weight: 850;
+      transform: translateY(-180%);
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
     }
 
     .container {
@@ -566,6 +590,86 @@
       line-height: 1.6;
     }
 
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .resume-snapshot {
+      padding: 24px;
+      background:
+        linear-gradient(135deg, rgba(75, 199, 255, 0.11), transparent 42%),
+        var(--panel);
+    }
+
+    .snapshot-list {
+      display: grid;
+      gap: 13px;
+      margin-top: 18px;
+    }
+
+    .snapshot-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 13px;
+    }
+
+    .snapshot-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .snapshot-item span {
+      color: var(--muted);
+    }
+
+    .snapshot-item strong {
+      color: var(--soft);
+      text-align: right;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .focus-card {
+      padding: 20px;
+      min-height: 170px;
+      transition: transform 0.24s ease, border-color 0.24s ease;
+    }
+
+    .focus-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(46, 230, 138, 0.32);
+    }
+
+    .focus-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius);
+      margin-bottom: 14px;
+      color: #06110c;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      font-weight: 950;
+    }
+
+    .focus-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .focus-card p {
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
     .skills-board {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -797,9 +901,24 @@
       }
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
     @media (max-width: 1040px) {
       .hero-grid,
       .about-grid,
+      .highlights-grid,
       .skills-board,
       .projects-grid,
       .contact-panel {
@@ -845,6 +964,18 @@
         grid-template-columns: 1fr;
       }
 
+      .focus-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .snapshot-item {
+        display: grid;
+      }
+
+      .snapshot-item strong {
+        text-align: left;
+      }
+
       .contact-card {
         grid-template-columns: 1fr;
       }
@@ -852,6 +983,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="page">
     <nav class="navbar">
       <div class="container nav-inner">
@@ -861,6 +993,7 @@
         </a>
         <div class="nav-links" aria-label="Primary navigation">
           <a href="#about">About</a>
+          <a href="#highlights">Highlights</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
@@ -869,8 +1002,8 @@
       </div>
     </nav>
 
-    <main id="top">
-      <header class="hero">
+    <main id="main">
+      <header class="hero" id="top">
         <div class="container hero-grid">
           <div class="hero-copy">
             <div class="kicker" data-reveal><span class="pulse"></span>Open to Java Developer roles</div>
@@ -984,6 +1117,67 @@
                 </div>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="highlights">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <div>
+              <div class="eyebrow">Highlights</div>
+              <h2 class="section-title">Quick signals for recruiters and teams.</h2>
+            </div>
+            <p class="section-subtitle">
+              A compact view of what I am ready to contribute, what I am practicing, and how this portfolio is positioned.
+            </p>
+          </div>
+
+          <div class="highlights-grid">
+            <article class="card resume-snapshot" data-reveal style="--delay: 0.08s;">
+              <h3>Resume Snapshot</h3>
+              <div class="snapshot-list">
+                <div class="snapshot-item">
+                  <span>Primary role</span>
+                  <strong>Java Developer</strong>
+                </div>
+                <div class="snapshot-item">
+                  <span>Backend focus</span>
+                  <strong>Spring Boot, REST APIs, MySQL</strong>
+                </div>
+                <div class="snapshot-item">
+                  <span>Frontend comfort</span>
+                  <strong>HTML, CSS, JavaScript</strong>
+                </div>
+                <div class="snapshot-item">
+                  <span>Availability</span>
+                  <strong>Open to opportunities</strong>
+                </div>
+              </div>
+            </article>
+
+            <div class="focus-grid">
+              <article class="card focus-card" data-reveal style="--delay: 0.14s;">
+                <span class="focus-icon">01</span>
+                <h3>Backend Foundations</h3>
+                <p>Strong interest in clean controllers, service layers, data flow, and maintainable Java code.</p>
+              </article>
+              <article class="card focus-card" data-reveal style="--delay: 0.2s;">
+                <span class="focus-icon">02</span>
+                <h3>Product Thinking</h3>
+                <p>I build projects around real user flows instead of only isolated code samples.</p>
+              </article>
+              <article class="card focus-card" data-reveal style="--delay: 0.26s;">
+                <span class="focus-icon">03</span>
+                <h3>Readable UI</h3>
+                <p>Responsive pages, clear CTAs, and simple interfaces that make information easy to scan.</p>
+              </article>
+              <article class="card focus-card" data-reveal style="--delay: 0.32s;">
+                <span class="focus-icon">04</span>
+                <h3>Live Delivery</h3>
+                <p>This portfolio is deployed publicly, version controlled, and ready to share with recruiters.</p>
+              </article>
+            </div>
           </div>
         </div>
       </section>
@@ -1137,14 +1331,22 @@
     const toggleButton = document.getElementById("themeToggle");
     const revealItems = document.querySelectorAll("[data-reveal]");
 
+    const updateThemeButton = () => {
+      const isLight = document.body.classList.contains("light");
+      toggleButton.textContent = isLight ? "Dark" : "Light";
+      toggleButton.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
+    };
+
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "light") {
       document.body.classList.add("light");
     }
+    updateThemeButton();
 
     toggleButton.addEventListener("click", () => {
       document.body.classList.toggle("light");
       localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
+      updateThemeButton();
     });
 
     const revealObserver = new IntersectionObserver((entries) => {
