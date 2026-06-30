@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ravi Prakash Yadav | Java Developer Portfolio</title>
   <meta name="description" content="Ravi Prakash Yadav is a Java developer building Spring Boot APIs, full stack web applications, and clean user experiences.">
+  <meta name="theme-color" content="#080c10">
+  <meta property="og:title" content="Ravi Prakash Yadav | Java Developer">
+  <meta property="og:description" content="Java developer portfolio featuring Spring Boot APIs, MySQL, frontend projects, and resume access.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ravi-yadav-09.github.io/portfolio/">
   <style>
     :root {
       --bg: #080c10;
@@ -105,6 +110,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
+      min-width: 0;
       font-weight: 850;
     }
 
@@ -124,6 +130,11 @@
       color: var(--muted);
       font-weight: 650;
       margin-top: 2px;
+    }
+
+    .brand-name {
+      min-width: 0;
+      line-height: 1.12;
     }
 
     .nav-links {
@@ -270,6 +281,35 @@
       line-height: 1.45;
     }
 
+    .proof-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .proof-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 9px 11px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 0.9rem;
+      font-weight: 760;
+    }
+
+    .proof-pill::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 4px rgba(46, 230, 138, 0.1);
+    }
+
     .hero-visual {
       position: relative;
       display: grid;
@@ -406,6 +446,25 @@
       background: rgba(255, 255, 255, 0.04);
       font-size: 0.88rem;
       font-weight: 700;
+    }
+
+    .availability-card {
+      border: 1px solid rgba(46, 230, 138, 0.24);
+      border-radius: var(--radius);
+      padding: 16px;
+      color: var(--soft);
+      background: linear-gradient(135deg, rgba(46, 230, 138, 0.12), rgba(75, 199, 255, 0.08));
+      box-shadow: var(--shadow);
+    }
+
+    .availability-card strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .availability-card span {
+      color: var(--muted);
+      line-height: 1.55;
     }
 
     section {
@@ -610,6 +669,33 @@
       line-height: 1.68;
     }
 
+    .project-points {
+      display: grid;
+      gap: 7px;
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .project-points li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.48;
+    }
+
+    .project-points li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+    }
+
     .project-link {
       display: inline-flex;
       align-items: center;
@@ -737,6 +823,14 @@
         padding: 12px 0;
       }
 
+      .brand {
+        width: 100%;
+      }
+
+      .brand-name {
+        font-size: 0.98rem;
+      }
+
       .nav-links {
         width: 100%;
         overflow-x: auto;
@@ -763,7 +857,7 @@
       <div class="container nav-inner">
         <a class="brand" href="#top" aria-label="Ravi Prakash Yadav home">
           <span class="brand-mark">RY</span>
-          <span>Ravi Prakash Yadav<small>Java Developer</small></span>
+          <span class="brand-name">Ravi Prakash Yadav<small>Java Developer</small></span>
         </a>
         <div class="nav-links" aria-label="Primary navigation">
           <a href="#about">About</a>
@@ -804,6 +898,11 @@
                 <span>Resume builder, typing test, and portfolio systems.</span>
               </div>
             </div>
+            <div class="proof-row" data-reveal style="--delay: 0.4s;" aria-label="Portfolio highlights">
+              <span class="proof-pill">Resume-ready profile</span>
+              <span class="proof-pill">GitHub Pages live</span>
+              <span class="proof-pill">Fast static portfolio</span>
+            </div>
           </div>
 
           <div class="hero-visual" data-reveal style="--delay: 0.18s;">
@@ -826,6 +925,10 @@
               <span>REST API</span>
               <span>MySQL</span>
               <span>JavaScript</span>
+            </div>
+            <div class="availability-card">
+              <strong>Current goal</strong>
+              <span>Contribute to Java backend, REST API, and full stack projects where clean code and reliable delivery matter.</span>
             </div>
             <div class="code-card" aria-label="Code style preview">
               <div class="code-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
@@ -951,6 +1054,10 @@
                 <span class="project-tag">Spring Boot</span>
                 <h3>Resume Builder API</h3>
                 <p>Backend for structured resume data, reusable templates, and clean output flow for professional documents.</p>
+                <ul class="project-points">
+                  <li>Designed around structured input and reusable output templates.</li>
+                  <li>Good fit for API, validation, and database practice.</li>
+                </ul>
                 <a class="project-link" href="https://github.com/Ravi-yadav-09" target="_blank" rel="noreferrer">View GitHub</a>
               </div>
             </article>
@@ -961,6 +1068,10 @@
                 <span class="project-tag">Java Desktop</span>
                 <h3>Typing Speed Test</h3>
                 <p>Java application for typing speed, accuracy tracking, and performance feedback through a simple workflow.</p>
+                <ul class="project-points">
+                  <li>Tracks user performance through speed and accuracy metrics.</li>
+                  <li>Shows Java UI logic and event-driven application flow.</li>
+                </ul>
                 <a class="project-link" href="https://github.com/Ravi-yadav-09" target="_blank" rel="noreferrer">View GitHub</a>
               </div>
             </article>
@@ -971,6 +1082,10 @@
                 <span class="project-tag">Frontend</span>
                 <h3>Portfolio Website</h3>
                 <p>Responsive portfolio with resume access, profile details, project highlights, and live GitHub Pages deployment.</p>
+                <ul class="project-points">
+                  <li>Built as a fast static site with responsive sections.</li>
+                  <li>Deployed live with profile photo, resume, and contact CTAs.</li>
+                </ul>
                 <a class="project-link" href="https://github.com/Ravi-yadav-09/portfolio" target="_blank" rel="noreferrer">View Repository</a>
               </div>
             </article>
