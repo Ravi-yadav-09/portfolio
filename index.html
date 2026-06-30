@@ -272,7 +272,8 @@
 
     .hero-visual {
       position: relative;
-      min-height: 620px;
+      display: grid;
+      gap: 14px;
     }
 
     .profile-card {
@@ -292,7 +293,7 @@
         linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
         linear-gradient(180deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
       background-size: 34px 34px;
-      opacity: 0.28;
+      opacity: 0.16;
       pointer-events: none;
     }
 
@@ -303,28 +304,24 @@
 
     .profile-photo {
       width: 100%;
-      aspect-ratio: 1 / 1.22;
+      aspect-ratio: 1 / 1.18;
       object-fit: cover;
-      object-position: center top;
+      object-position: center 18%;
       border-radius: var(--radius);
       border: 1px solid var(--line);
       filter: saturate(1.04) contrast(1.02);
     }
 
     .profile-caption {
-      position: absolute;
-      left: 28px;
-      right: 28px;
-      bottom: 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      margin: 12px 14px 14px;
+      border: 1px solid var(--line);
       border-radius: var(--radius);
       padding: 13px 14px;
-      background: rgba(8, 12, 16, 0.76);
-      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.04);
     }
 
     .profile-caption strong,
@@ -345,16 +342,12 @@
     }
 
     .code-card {
-      position: absolute;
-      left: -38px;
-      bottom: 18px;
-      width: min(330px, 76%);
+      width: 100%;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       overflow: hidden;
       background: rgba(12, 17, 22, 0.94);
       box-shadow: var(--shadow);
-      animation: lift 6s ease-in-out infinite;
     }
 
     .code-bar {
@@ -390,16 +383,12 @@
     }
 
     .stack-card {
-      position: absolute;
-      right: -20px;
-      top: 36px;
-      width: min(270px, 68%);
+      width: 100%;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       padding: 16px;
       background: var(--panel);
       box-shadow: var(--shadow);
-      animation: lift 6s ease-in-out -2s infinite;
     }
 
     .stack-card strong {
@@ -732,19 +721,7 @@
       }
 
       .hero-visual {
-        min-height: auto;
         max-width: 560px;
-      }
-
-      .code-card,
-      .stack-card {
-        position: relative;
-        left: auto;
-        right: auto;
-        top: auto;
-        bottom: auto;
-        width: 100%;
-        margin-top: 12px;
       }
 
       .section-head {
@@ -772,11 +749,6 @@
 
       .hero-strip {
         grid-template-columns: 1fr;
-      }
-
-      .profile-caption {
-        position: static;
-        margin: 12px 14px 14px;
       }
 
       .contact-card {
